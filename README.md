@@ -20,3 +20,4 @@ cordova platform add Android
 In den, durch die Befehle erzeugten Ordner und Datein, haben wir nun allso begonnne unser Application aufzubauen.
 
 ## API`s 
+Serverseitig 
