@@ -19,5 +19,15 @@ cordova platform add Android
 ```
 In den, durch die Befehle erzeugten Ordner und Datein, haben wir nun allso begonnne unser Application aufzubauen.
 
-## API`s 
-Serverseitig 
+## API's 
+Serverseitig nutzten wir für die Texterkennenung die API von speechtext.ai, die für uns die Transkription der Sprachnachrichten übernahm. Für die Analyse des Texte nutzten wir zusätzlich die Natural-Language-Understanding - API von IBM Watson. Beide unserer API's nutzten wir in Python, damit wir sie in unserem Server ansprechen konnten. 
+
+## Networking
+Für die Kommunikation zwischen unserem Server und dem Client, welchen unsere mobile Applikation darstellt, nutzten wir das TCP-Protokoll. In unserem Server nutzen wir dafür das Socket-Modul, welches in Python vorinstalliet ist. Clientseitig mussten wir in Cordova zusätzlich ein Plug-In installieren, mit
+```
+cordova plugin add cz.blocshop.socketsforcordova
+```
+um das Protokoll nutzen zu können und die Verbingung herstellen zu können und die Sprachnachricht versenden zu können.
+
+## Server
+Unseren Server haben wir in Python aufgebaut. Dieser hatte die Aufgabe die empfangenen Daten zu verwalten, an die API's weiterzugeben und die Ergebnisse an die App zurück zu senden. 
