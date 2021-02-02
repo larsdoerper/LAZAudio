@@ -37,4 +37,7 @@ Unseren Server haben wir in Python aufgebaut. Dieser hatte die Aufgabe die empfa
 ### Um unseren Prototypen zu nutzen... 
 1. Cordova, wie beschrieben, installierne
 2. Cordova initiieren 
-3. Den Ordner "www"
+3. Den Ordner "www" durch den aus diesem Repository ersetzen
+4. Cordova mit dem Emulator oder auf einem Android-Smartphone starten
+5. Den Server starten
+6. Datei auf dem Smartphone auswählen und senden
