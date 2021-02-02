@@ -6,3 +6,7 @@ Im Front-End der Applikation arbeiteten wir mit einer HTML und CSS Ausgabe unser
 
 ## Framework
 Um aus unserem Web - Front-End ein zu machen, benutzten wir in unserem Projekt Apache Cordova. Dazu inizierten wir das Projekt 
+```
+No language indicated, so no syntax highlighting. 
+But let's throw in a <b>tag</b>.
+```
