@@ -5,8 +5,18 @@ LAZAudio ist ein Studentenprojekt von Lars Dörper und Zahit Kiziltepe, dass im 
 Im Front-End der Applikation arbeiteten wir mit einer HTML und CSS Ausgabe unserer Inhalte. Unterstuützt wird es in seiner Funktion durch JavaScript.
 
 ## Framework
-Um aus unserem Web - Front-End ein zu machen, benutzten wir in unserem Projekt Apache Cordova. Dazu inizierten wir das Projekt 
+Um aus unserem Web - Front-End ein zu machen, benutzten wir in unserem Projekt Apache Cordova. Installiert werden kann Apache Cordova über Node.js mit
 ```
-No language indicated, so no syntax highlighting. 
-But let's throw in a <b>tag</b>.
+npm install -g Cordova
 ```
+Zu Beginn initiierten wir das Projekt unter dem Namen LAZAudio mit dem Befehl 
+```
+cordova create Projektname
+```
+Um Cordova auf dem Smartphone nutzen zu können musste zusätzlich Adroid als Platform installieren
+```
+cordova platform add Android
+```
+In den, durch die Befehle erzeugten Ordner und Datein, haben wir nun allso begonnne unser Application aufzubauen.
+
+## API`s 
