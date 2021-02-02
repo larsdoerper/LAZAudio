@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Call of all necessary meta tags and links-->
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/index.css">
+        <script src="cordova.js"></script>
+        <script src="js/index.js"></script>
+        <title>LAZAudio</title>
+    </head>
+    <body>
+        <section id="start">
+        <!--Displayed content-->
+        <div class="app">
+            <center><img class="logo" src="img/logo.png"></center>
+            <center><img class="logoText" src="img/logoText.png"></center>
+            <center><label id="label" for="myFile">Datei öffnen<input type="file" id="myFile"></label></center>
+            <center><button id="history">Historie</button></center>
+            <center><div class="lds-spinner" id="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></center>
+        </div>
+
+        <!--Functions of the App-->
+        <script type="text/javascript">
+                //get the file in the input tag
+                var inputElement = document.getElementById("myFile");
+
+                //functions that is triggerd when an file is selctet and that handles the sending of the filedata and await the response from server
+                function handleFiles() {  
+                    const reader = new FileReader();//create an new FileReader instance 
+                    let selectedFile = this.files[0];//get the selected file
+                    reader.onload = function() {//function that is triggerd, when the file reading ist comleted
+                        let dataString = reader.result;//saving the file da†a 
+                        let question = confirm(`Sprachnachricht übersetzen?`);//ask for confirmation to send data
+                        if (question){//when confirmation is given
+                            sendFile(dataString);//calling send function; function is declared in index.js
+                            document.getElementById('label').style.display = 'none';//hide input fild
+                            document.getElementById('history').style.display = 'none';//hide history button
+                            document.getElementById('lds-spinner').style.display = 'block';//make loding spinner visibal
+                            awaitAnswer();//call function that awaits the answer for server; function is declared in index.js
+                        
+                        } 
+                        else if (question == false){//when confirmation is denied 
+                            location.reload();//reload page
+                        }
+                        
+                    }
+                    reader.readAsBinaryString(selectedFile);//read the file data binary and safe it in sting 
+                
+                }   
+
+                inputElement.addEventListener("change", handleFiles, false);//trigger for handle function when an file is selected
+        </script>
+        </section>
+
+
+
+
+
+        <section id="return">
+            <div id="header">
+            
+                <div id="logo">
+                        <!--Kopfzeile mit Bild-Datei LazAudio-->
+                        <img src="img/logo2.png" alt="logo" width="100%" height="100%">
+                        <button onclick="zurueck()"> <!--Zurückpfeiltaste neben der Überschrift-->
+                        <img src="img/pfeilw.png" height="36px" width="auto">
+                    </button>
+                    <p class="historie"> <!--Überschrift neben der Zurückpfeiltaste-->
+                        Historie
+                    </p>
+                    
+                </div>
+            </div>
+            
+            
+                
+           
+    
+            <!--Textausgabe Bereich-->    
+            <!--Client.js Daten empfangen-->
+            <section id="text">
+                    <!--Textausgabe-->
+                    <span id="span">
+                        
+                    </span>
+                    <!--Untere weiße Bereich mit den Buttons-->
+                    <div style="background: #FFFFFF">
+                        <p id="date"> <!--Das Datum rechts neben den Buttons-->
+                            Mo. 01.02.
+                        </p>
+                        <!--der Löschen-Button-->
+                        <button onclick="loeschen()" id="loeschen" style="background: #FFFFFF">
+                            <img src="img/loeschen.png" height="25px">
+                        </button>
+                        <!--der Kopieren-Button-->
+                        <button onclick="copy()" id="copy" style="background: #FFFFFF">
+                            <img src="img/kopieren.png" height="25px">
+                        </button>    
+                    </div>
+                <script> //Funktion für die Ausgabe des empfangenen Textes
+                
+                    
+                </script>
+            </section>
+    
+            <!--Funktionen für die Veränderung der Ausgabe-->
+            <script>
+    
+                function schlagwoerter(){ //Ausgabe mit den Schlagwörtern
+                    //Hier kommt die Ausgabe mit den Schlagwörtern rein
+                    document.getElementById("schlagwoerter");
+                }
+    
+                function emotion(){ //Ausgabe mit den Emotionen
+                    //Hier kommt die Ausgabe mit den Emotionen rein
+                    document.getElementById("emotion");
+                }
+    
+                function highlighting(){ //Ausgabe mit dem Highlighting
+                    //Hier kommt die Ausgabe mit den Highlighting rein
+                    document.getElementById("highlighting");
+                }
+    
+            </script>
+    
+            <!--Fußzeile-->
+            <div id="footer">
+    
+                <!-- Buttons in der Fußzeile-->
+                    <button onclick="schlagwoerter()" id="schlagwoerter">  <!-- Button Links für die Schlagwörter-->
+                        <img src="img/Schlagwoerter.png">
+                        <p>Schlagwörter</p>
+                    </button>
+    
+                    <button onclick="emotion()" id="emotion"> <!-- Button in der Mitte für die Emotionen-->
+                        <img src="img/emotion.png">
+                        <p>Emotion</p>
+                    </button>
+    
+                    <button onclick="highlighting()" id="highlighting"> <!-- Button Rechts für das Highlighting-->
+                        <img src="img/highlighting.png">
+                        <p>Highlighting</p>
+                    </button>
+                </div>
+        </section>
+    </body>
+</html>
